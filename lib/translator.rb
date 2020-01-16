@@ -30,6 +30,5 @@ end
 
 def get_english_meaning(file, emoticon)
   emoticons = load_library(file)
-  
-  
+  result = emoticons["get_meaning"][emoticon]
 end
