@@ -1,11 +1,24 @@
 # require modules here
+require "yaml"
 
-def load_library
-  # code goes here
+def load_library(file)
+  hash = YAML.load_file(file)
+  emoticons = {
+    "get_meaning" => {},
+    "get_emoticon" => {}
+  }
+  hash.each do |key, value|
+    english = value[0]
+    japanese = value[1]
+    emoticons["get_meaning"][japanese] = key.to_s 
+    emoticons["get_emoticon"][english] = japanese
+  end
+  emoticons
+  
 end
 
-def get_japanese_emoticon
-  # code goes here
+def get_japanese_emoticon(file, emoticon)
+  
 end
 
 def get_english_meaning
